@@ -481,13 +481,13 @@ class Content extends React.Component {
     }
     dataForChart9 = () => {
         // Host Countries
-        let city = {};
-        
-        if(Object.keys(this.state.rawMatch).length !== 2){
+       
+        var city = {};
+        if(Object.keys(this.state.rawMatch).length !== 0){
             this.state.rawMatch.data.forEach(element => {
                 if(city[element.city] !== undefined) {
                     city[element.city] += 1;
-                } else {
+                } else if(element.city !== undefined && element.city !== ' ') {
                     city[element.city] = 1;
                 }
             });
@@ -690,7 +690,7 @@ class Content extends React.Component {
         return (
             <div className='content-container'>
                 <div className='title-container'>
-                    <h1><span className='bold'>Indian Premier League</span> Statistics</h1>
+                    <h1><span className='bold'>Indian Premier League</span> (2008-2017)</h1>
                 </div>
                 <div className='infobox-container'>
                     <InfoBox data={this.state.infoBox1} title='Total Matches' icon={<i className="fas fa-cricket fa-4x"></i>} text='Matches played till now.' />

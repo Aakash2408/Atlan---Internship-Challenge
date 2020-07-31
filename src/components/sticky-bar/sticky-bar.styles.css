@@ -1,7 +1,7 @@
 .sticky-bar {
     position: fixed;
     height: 60px;
-    background-color:#EC1C24;
+    background-color:#d30606d7;
     box-shadow: 0 3px 6px rgba(0,0,0,0.03), 0 3px 6px rgba(0,0,0,0.08);
     display: flex;
     align-items: center;
@@ -111,7 +111,7 @@
 	display: inline-block;
 	color: #000000;
 	text-align: left;
-	background-color: #efc50a;
+	background-color: whitesmoke;
 	padding: .9em 1.3em;
 	border: none;
 	cursor: pointer;
@@ -132,7 +132,7 @@
   transition: all 0.3s ease-in-out;
 }
 .search-field:focus {
-	background-color: rgb(233, 193, 16);
+	background-color: whitesmoke;
 }
 
 /* after button is clicked */

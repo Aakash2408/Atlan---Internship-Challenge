@@ -19,13 +19,13 @@ class StickyBar extends React.Component {
                         <div className='profile-pic-container'>
                             <img src={user} alt='Profile Pic' />
                         </div>
-                        <div className='username'>Pawan Kolhe <i className="fas fa-caret-down"></i></div>
+                        <div className='username'>Aakash Sangwan<i className="fas fa-caret-down"></i></div>
                         <div className='user-menu'>
-                            <a href='https://pawankolhe.com' onClick={(e) => {e.preventDefault();}}><i className="fal fa-user"></i> Profile</a>
-                            <a href='https://pawankolhe.com' onClick={(e) => {e.preventDefault();}}><i className="fal fa-cog"></i> Settings</a>
+                            <a href='https://github.com/Aakash2408' target="_blank" rel="noopener noreferrer"><i className="fal fa-user"></i>Github</a>
+                            <a href='https://github.com/Aakash2408' onClick={(e) => {e.preventDefault();}}><i className="fal fa-cog"></i> Settings</a>
                             <div className='user-menu-divider'></div>
-                            <a href='https://pawankolhe.com' onClick={(e) => {e.preventDefault();}}><i className="fal fa-compass"></i> Need help?</a>
-                            <a href='https://pawankolhe.com' onClick={(e) => {e.preventDefault();}}><i className="fal fa-sign-out"></i> Logout</a>
+                            <a href='https://github.com/Aakash2408' onClick={(e) => {e.preventDefault();}}><i className="fal fa-compass"></i> Need help?</a>
+                            <a href='https://github.com/Aakash2408' onClick={(e) => {e.preventDefault();}}><i className="fal fa-sign-out"></i> Logout</a>
                         </div>
                     </div>
                 </div>
