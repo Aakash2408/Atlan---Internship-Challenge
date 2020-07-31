@@ -6,7 +6,7 @@ nav {
     position: fixed;
     left: 0px;
     height: inherit;
-    z-index: 200;
+    z-index: 1000;
 }
 
 .nav-link-container a {
@@ -20,7 +20,9 @@ nav {
 .nav-link-container a i {
     padding-right: 8px;
 }
-
+.logo{
+margin-top:8% !important;
+}
 .nav-link-container a:hover {
     background-color: rgba(255, 255, 255, 1);
     color: #343D45;

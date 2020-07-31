@@ -106,12 +106,12 @@ class Content extends React.Component {
                             label: 'Bat or Field Decision',
                             data: [batCount, this.state.rawMatch.data.length - batCount],
                             backgroundColor: [
-                                'rgba(121, 85, 72, 0.5)',
-                                'rgba(76, 175, 80, 0.5)'
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(0, 150, 136, 0.5)',
                             ],
                             borderColor: [
                                 'rgba(121, 85, 72,1)',
-                                'rgba(76, 175, 80, 1)'
+                                'rgba(0, 150, 136, 1)',
                             ],
                             borderWidth: 1
                         }
@@ -203,13 +203,13 @@ class Content extends React.Component {
                             label: 'Result Type',
                             data: [...Object.values(result)],
                             backgroundColor: [
-                                'rgba(58, 55, 52,0.5)',
+                                'rgba(0, 150, 136, 0.5)',
                                 'rgba(9, 168, 250,0.5)',
                                 'rgba(255, 193, 7, 0.5)',
                                 'rgba(255, 87, 34,0.5)'
                             ],
                             borderColor: [
-                                'rgba(58, 55, 52,1.0)',
+                                'rgba(0, 150, 136, 1)',
                                 'rgba(9, 168, 250.0)',
                                 'rgba(255, 193, 7, 1)',
                                 'rgba(255, 87, 34,1.0)'
@@ -243,12 +243,12 @@ class Content extends React.Component {
                             label: 'Left or Right Handed Batsmen',
                             data: [...Object.values(handType)],
                             backgroundColor: [
-                                'rgba(244, 67, 54, 0.5)',
-                                'rgba(9, 98, 234, 0.5)'
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(0, 150, 136, 0.5)',
                             ],
                             borderColor: [
-                                'rgba(244, 67, 54,1)',
-                                'rgba(9, 98, 234, 1)'
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(0, 150, 136, 1)',
                             ],
                             borderWidth: 1
                         }
@@ -278,38 +278,37 @@ class Content extends React.Component {
                             label: 'Winner',
                             data: [...Object.values(winner)],
                             backgroundColor: [
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)'
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+
                             ],
                             borderColor: [
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)'
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
                             ],
                             borderWidth: 1
                         }
@@ -746,12 +745,7 @@ class Content extends React.Component {
                         displayLegend={false} chartData={this.state.chartData8} 
                         titleText='Toss winners' 
                     />
-                     <ChartDisplay 
-                        selectChart='bar' 
-                        chartData={this.state.chartData9} 
-                        titleText='Matches city' 
-                        displayLegend={false}
-                    />
+                    
                    
                   
                      <ChartDisplay 
@@ -759,6 +753,12 @@ class Content extends React.Component {
                         displayLegend={false} 
                         chartData={this.state.chartData10} 
                         titleText='Type of  Dismissal' 
+                    />
+                     <ChartDisplay 
+                        selectChart='bar' 
+                        chartData={this.state.chartData9} 
+                        titleText='Matches city' 
+                        displayLegend={false}
                     />
                  
                     
