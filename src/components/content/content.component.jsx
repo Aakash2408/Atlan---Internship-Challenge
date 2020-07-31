@@ -17,6 +17,8 @@ class Content extends React.Component {
             chartData6: {},
             chartData7: {},
             chartData8: {},
+            chartData9: {},
+            chartData10: {},
             rawMatch: {},
             rawPlayer: {},
             rawBallByBall: {}
@@ -237,9 +239,8 @@ class Content extends React.Component {
             this.forceUpdate();
         }
     }
-
     dataForChart5 = () => {
-        // Total Matches wins by Per Team
+        // Ttoal Matches wins by Per Team
         var winner = {};
         if(Object.keys(this.state.rawMatch).length !== 0){
             this.state.rawMatch.data.forEach(element => {
@@ -417,7 +418,7 @@ class Content extends React.Component {
                     labels: [...Object.keys(toss_winner)],
                     datasets: [
                         {
-                            label: 'Toss Wi',
+                            label: 'Toss Win',
                             data: [...Object.values(toss_winner)],
                             backgroundColor: [
                                 'rgba(233, 30, 99, 0.5)',
@@ -614,6 +615,40 @@ class Content extends React.Component {
                     <InfoBox data={this.state.infoBox4} title='Total Sixes' icon={<i className="fas fa-cricket fa-4x"></i>} text='Number of balls crossing the boundary.'  />
                 </div>
                 <div className='graph-container'>
+                    
+                    <ChartDisplay 
+                        selectChart='bar' 
+                        displayLegend={false} 
+                        chartData={this.state.chartData1} 
+                        titleText='Batting / Fielding Decision' 
+                    />
+                    <ChartDisplay 
+                        selectChart='horizontalBar' 
+                        chartData={this.state.chartData2} 
+                        titleText='Matches Hosted By Country' 
+                    />
+                    <ChartDisplay 
+                        selectChart='doughnut' 
+                        chartData={this.state.chartData3} 
+                        titleText='Result Type' 
+                    />
+                     <ChartDisplay 
+                        selectChart='pie' 
+                        chartData={this.state.chartData4} 
+                        titleText='Left / Right Handed Batsmen' 
+                    />
+                     <ChartDisplay 
+                        selectChart='horizontalBar' 
+                        displayLegend={false} 
+                        chartData={this.state.chartData5} 
+                        titleText='Matches Wins' 
+                    />
+                       <ChartDisplay 
+                        selectChart='horizontalBar' 
+                        displayLegend={false} 
+                        chartData={this.state.chartData6} 
+                        titleText='Player Nationality' 
+                    />
                     <ChartDisplay 
                         selectChart='line' 
                         chartData={this.state.chartData7} 
@@ -622,55 +657,25 @@ class Content extends React.Component {
                         selectLabelText='Overs' 
                     />
                     <ChartDisplay 
-                        selectChart='bar' 
-                        displayLegend={false} 
-                        chartData={this.state.chartData1} 
-                        titleText='Batting / Fielding Decision' 
-                    />
-                    <ChartDisplay 
-                        selectChart='doughnut' 
-                        chartData={this.state.chartData3} 
-                        titleText='Result Type' 
-                    />
-                    <ChartDisplay 
-                        selectChart='horizontalBar' 
-                        chartData={this.state.chartData2} 
-                        titleText='Matches Hosted By Country' 
+                        selectChart={x < 900 ? 'horizontalBar' : 'bar'} 
+                        displayLegend={false} chartData={this.state.chartData8} 
+                        titleText='Toss winners' 
                     />
                      <ChartDisplay 
                         selectChart='horizontalBar' 
                         chartData={this.state.chartData9} 
                         titleText='Matches Hosted By Country' 
                     />
-                    <ChartDisplay 
-                        selectChart='pie' 
-                        chartData={this.state.chartData4} 
-                        titleText='Left / Right Handed Batsmen' 
-                    />
-                    <ChartDisplay 
-                        selectChart='horizontalBar' 
-                        displayLegend={false} 
-                        chartData={this.state.chartData5} 
-                        titleText='Bowling Skills' 
-                    />
+                   
+                  
                      <ChartDisplay 
                         selectChart='horizontalBar' 
                         displayLegend={false} 
                         chartData={this.state.chartData10} 
                         titleText='Bowling Skills' 
                     />
-                    <ChartDisplay 
-                        selectChart='horizontalBar' 
-                        displayLegend={false} 
-                        chartData={this.state.chartData6} 
-                        titleText='Player Nationality' 
-                    />
+                 
                     
-                    <ChartDisplay 
-                        selectChart={x < 900 ? 'horizontalBar' : 'bar'} 
-                        displayLegend={false} chartData={this.state.chartData8} 
-                        titleText='Toss winners' 
-                    />
                 </div>
             </div>
         )
