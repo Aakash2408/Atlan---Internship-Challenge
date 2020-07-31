@@ -1,5 +1,6 @@
 import React from 'react';
 import './sticky-bar.styles.css';
+import user from '../../img/user.jpg';
 
 class StickyBar extends React.Component {
     render(){
@@ -16,7 +17,7 @@ class StickyBar extends React.Component {
                     <div id='fullscreenButtonContainer'></div>
                     <div className='login-section-container'>
                         <div className='profile-pic-container'>
-                            <img src={""} alt='Profile Pic' />
+                            <img src={user} alt='Profile Pic' />
                         </div>
                         <div className='username'>Pawan Kolhe <i className="fas fa-caret-down"></i></div>
                         <div className='user-menu'>
