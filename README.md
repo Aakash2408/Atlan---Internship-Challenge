@@ -1,4 +1,4 @@
-# Front End Engineer Challenge – IPL
+# Atlan -- Internship Hiring Challenge
 
 A data visualization challenge to build a web app with IPL (Indian Premier League) data provided in CSV files. Goal was to present stats and interesting information about IPL to someone who knows about cricket but has not seen IPL.
 
@@ -31,9 +31,9 @@ A data visualization challenge to build a web app with IPL (Indian Premier Leagu
 ## Thought Process
   - I have used two colors wherever possible for presenting data on the charts for whole page ,it looks better than mixing so many colors 
   - I searched through all the given datasets to look for attributes that would intrigue a person who knows cricket but has never watched IPL. 
-  - I wanted the Navigation bar to initially be in 'full' state while browsing on desktop and in 'minimal' state while on mobile to give mobile users more space yet have menu items easily accessible in one click.
+  - I wanted the Navigation bar to initially be in 'full' state while browsing on desktop and in 'minimal' state while on mobile to give mobile users more space       yet have menu items easily accessible in one click.
   - When looking for a CSV file parsing solution, papaparser was the best one I could find.
-  - Making a mobile responsive website is a must in 2019. With mobile in-mind, I carefully planned my layout design. I used grid layout and flex box for most of my layout design process.
+  - Making a mobile responsive website is a must in 2019. With mobile in-mind, I carefully planned my layout design. I used grid layout and flex box for most of       my layout design process.
   - The top bar seemed empty, so I added a search bar that would fit in with the design scheme.
   - Used Poppins and Lato as fonts for this challenge, both being popular and modern choices. For the icons I used Font Awesome Pro.
   - I decided to add a fullscreen toggle button in the header bar because an admin panel is best viewed in fullscreen. Less clutter, the better. :)
