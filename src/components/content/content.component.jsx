@@ -10,6 +10,7 @@ class Content extends React.Component {
     constructor(){
         super();
         this.state = {
+            chartData1: {},
             chartData2: {},
             chartData3: {},
             chartData4: {},
@@ -61,22 +62,26 @@ class Content extends React.Component {
     saveMatch = (result) => {
         this.setState({ rawMatch: result });
         this.dataForChart1();
-        this.dataForChart2();
         this.dataForChart3();
-        this.dataForChart9();
+       
+        this.dataForChart5();
+        this.dataForChart8();
+        
         this.dataForInfoBox1and2();
     }
     savePlayer = (result) => {
         this.setState({ rawPlayer: result });
+       
+        this.dataForChart2();
         this.dataForChart4();
-        this.dataForChart5();
-        this.dataForChart10();
         this.dataForChart6();
     }
     saveBallByBall = (result) => {
         this.setState({ rawBallByBall: result });
         this.dataForChart7();
-        this.dataForChart8();
+        this.dataForChart9();
+        this.dataForChart10();
+        this.dataForInfoBox3and4();
         
     }
     /*saveSeason = (result) => {this.setState({rawSeason: result});}
@@ -117,43 +122,56 @@ class Content extends React.Component {
     }
 
     dataForChart2 = () => {
-        // Toss winners
-        let toss_winner = {};
-        
-        if(Object.keys(this.state.rawMatch).length !== 0){
-            this.state.rawMatch.data.forEach(element => {
-                if(toss_winner[element.toss_winner] !== undefined) {
-                    toss_winner[element.toss_winner] += 1;
-                } else {
-                    toss_winner[element.toss_winner] = 1;
+        var Bowling_Skill = {};
+        if(Object.keys(this.state.rawPlayer).length !== 0){
+            this.state.rawPlayer.data.forEach(element => {
+                if(Bowling_Skill[element.Bowling_Skill] !== undefined) {
+                    Bowling_Skill[element.Bowling_Skill] += 1;
+                } else if(element.Bowling_Skill !== undefined ) {
+                    Bowling_Skill[element.Bowling_Skill] = 1;
                 }
             });
 
             this.setState({
                 chartData2: {
-                    labels: [...Object.keys(toss_winner)],
+                    labels: [...Object.keys(Bowling_Skill)],
                     datasets: [
                         {
-                            label: 'Toss ',
-                            data: [...Object.values(toss_winner)],
+                            label: 'Winner',
+                            data: [...Object.values(Bowling_Skill)],
                             backgroundColor: [
-                                'rgba(33, 150, 243,0.5)',
-                                'rgba(33, 150, 243,0.5)',
-                                'rgba(33, 150, 243,0.5)',
-                                'rgba(33, 150, 243,0.5)',
-                                'rgba(33, 150, 243,0.5)',
-                                
-                                'rgba(33, 150, 243,0.5)',
-                                'rgba(33, 150, 243,0.5)',
-                                'rgba(33, 150, 243,0.5)',
-
-                                'rgba(76, 175, 80,0.5)',
-                                'rgba(244, 67, 54,0.5)'
+                                'rgba(0, 150, 136, 0.5)',
+                                'rgba(0, 150, 136, 0.5)',
+                                'rgba(0, 150, 136, 0.5)',
+                                'rgba(0, 150, 136, 0.5)',
+                                'rgba(0, 150, 136, 0.5)',
+                                'rgba(0, 150, 136, 0.5)',
+                                'rgba(0, 150, 136, 0.5)',
+                                'rgba(0, 150, 136, 0.5)',
+                                'rgba(0, 150, 136, 0.5)',
+                                'rgba(0, 150, 136, 0.5)',
+                                'rgba(0, 150, 136, 0.5)',
+                                'rgba(0, 150, 136, 0.5)',
+                                'rgba(0, 150, 136, 0.5)',
+                                'rgba(0, 150, 136, 0.5)',
+                                'rgba(0, 150, 136, 0.5)'
                             ],
                             borderColor: [
-                                'rgba(33, 150, 243,1.0)',
-                                'rgba(76, 175, 80,1.0)',
-                                'rgba(244, 67, 54,1.0)'
+                                'rgba(0, 150, 136, 1)',
+                                'rgba(0, 150, 136, 1)',
+                                'rgba(0, 150, 136, 1)',
+                                'rgba(0, 150, 136, 1)',
+                                'rgba(0, 150, 136, 1)',
+                                'rgba(0, 150, 136, 1)',
+                                'rgba(0, 150, 136, 1)',
+                                'rgba(0, 150, 136, 1)',
+                                'rgba(0, 150, 136, 1)',
+                                'rgba(0, 150, 136, 1)',
+                                'rgba(0, 150, 136, 1)',
+                                'rgba(0, 150, 136, 1)',
+                                'rgba(0, 150, 136, 1)',
+                                'rgba(0, 150, 136, 1)',
+                                'rgba(0, 150, 136, 1)'
                             ],
                             borderWidth: 1
                         }
@@ -163,6 +181,7 @@ class Content extends React.Component {
             this.forceUpdate();
         }
     }
+
 
     dataForChart3 = () => {
         // Result Type
@@ -246,7 +265,7 @@ class Content extends React.Component {
             this.state.rawMatch.data.forEach(element => {
                 if(winner[element.winner] !== undefined) {
                     winner[element.winner] += 1;
-                } else if(element.winner !== undefined && element.winner !== "NULL") {
+                } else if(element.winner !== undefined ) {
                     winner[element.winner] = 1;
                 }
             });
@@ -402,7 +421,7 @@ class Content extends React.Component {
     }
     
     dataForChart8 = () => {
-        // Types of Dismissals
+        //Toss Winners
         var toss_winner = {};
         if(Object.keys(this.state.rawMatch).length !== 0){
             this.state.rawMatch.data.forEach(element => {
@@ -462,33 +481,97 @@ class Content extends React.Component {
     }
     dataForChart9 = () => {
         // Host Countries
-        let countries = {};
+        let city = {};
         
-        if(Object.keys(this.state.rawMatch).length !== 0){
+        if(Object.keys(this.state.rawMatch).length !== 2){
             this.state.rawMatch.data.forEach(element => {
-                if(countries[element.Host_Country] !== undefined) {
-                    countries[element.Host_Country] += 1;
+                if(city[element.city] !== undefined) {
+                    city[element.city] += 1;
                 } else {
-                    countries[element.Host_Country] = 1;
+                    city[element.city] = 1;
                 }
             });
 
             this.setState({
-                chartData2: {
-                    labels: [...Object.keys(countries)],
+                chartData9: {
+                    labels: [...Object.keys(city)],
                     datasets: [
                         {
                             label: 'Host Countries',
-                            data: [...Object.values(countries)],
+                            data: [...Object.values(city)],
                             backgroundColor: [
                                 'rgba(33, 150, 243,0.5)',
                                 'rgba(76, 175, 80,0.5)',
-                                'rgba(244, 67, 54,0.5)'
+                                'rgba(244, 67, 54,0.5)',
+                                'rgba(33, 150, 243,0.5)',
+                                'rgba(76, 175, 80,0.5)',
+                                'rgba(244, 67, 54,0.5)',
+                                'rgba(33, 150, 243,0.5)',
+                                'rgba(76, 175, 80,0.5)',
+                                'rgba(244, 67, 54,0.5)',
+                                'rgba(33, 150, 243,0.5)',
+                                'rgba(76, 175, 80,0.5)',
+                                'rgba(244, 67, 54,0.5)',
+                                'rgba(33, 150, 243,0.5)',
+                                'rgba(76, 175, 80,0.5)',
+                                'rgba(244, 67, 54,0.5)',
+                                'rgba(33, 150, 243,0.5)',
+                                'rgba(76, 175, 80,0.5)',
+                                'rgba(244, 67, 54,0.5)',
+                                'rgba(33, 150, 243,0.5)',
+                                'rgba(76, 175, 80,0.5)',
+                                'rgba(244, 67, 54,0.5)',
+                                'rgba(33, 150, 243,0.5)',
+                                'rgba(76, 175, 80,0.5)',
+                                'rgba(244, 67, 54,0.5)',
+                                'rgba(33, 150, 243,0.5)',
+                                'rgba(76, 175, 80,0.5)',
+                                'rgba(244, 67, 54,0.5)',
+                                'rgba(33, 150, 243,0.5)',
+                                'rgba(76, 175, 80,0.5)',
+                                'rgba(244, 67, 54,0.5)',
+                                'rgba(33, 150, 243,0.5)',
+                                'rgba(76, 175, 80,0.5)',
+                                
+                                
                             ],
                             borderColor: [
                                 'rgba(33, 150, 243,1.0)',
                                 'rgba(76, 175, 80,1.0)',
-                                'rgba(244, 67, 54,1.0)'
+                                'rgba(244, 67, 54,1.0)',
+                                'rgba(33, 150, 243,1.0)',
+                                'rgba(76, 175, 80,1.0)',
+                                'rgba(244, 67, 54,1.0)',
+                                'rgba(33, 150, 243,1.0)',
+                                'rgba(76, 175, 80,1.0)',
+                                'rgba(244, 67, 54,1.0)',
+                                'rgba(33, 150, 243,1.0)',
+                                'rgba(76, 175, 80,1.0)',
+                                'rgba(244, 67, 54,1.0)',
+                                'rgba(33, 150, 243,1.0)',
+                                'rgba(76, 175, 80,1.0)',
+                                'rgba(244, 67, 54,1.0)',
+                                'rgba(33, 150, 243,1.0)',
+                                'rgba(76, 175, 80,1.0)',
+                                'rgba(244, 67, 54,1.0)',
+                                'rgba(33, 150, 243,1.0)',
+                                'rgba(76, 175, 80,1.0)',
+                                'rgba(244, 67, 54,1.0)',
+                                'rgba(33, 150, 243,1.0)',
+                                'rgba(76, 175, 80,1.0)',
+                                'rgba(244, 67, 54,1.0)',
+                                'rgba(33, 150, 243,1.0)',
+                                'rgba(76, 175, 80,1.0)',
+                                'rgba(244, 67, 54,1.0)',
+                                'rgba(33, 150, 243,1.0)',
+                                'rgba(76, 175, 80,1.0)',
+                                'rgba(244, 67, 54,1.0)',
+                                'rgba(33, 150, 243,1.0)',
+                                'rgba(76, 175, 80,1.0)',
+                                'rgba(244, 67, 54,1.0)',
+                                'rgba(33, 150, 243,1.0)',
+                                'rgba(76, 175, 80,1.0)',
+                                'rgba(244, 67, 54,1.0)',
                             ],
                             borderWidth: 1
                         }
@@ -499,55 +582,55 @@ class Content extends React.Component {
         }
     }
     dataForChart10 = () => {
-        // Bowling Skill
-        var bowlingSkill = {};
-        if(Object.keys(this.state.rawPlayer).length !== 0){
-            this.state.rawPlayer.data.forEach(element => {
-                if(bowlingSkill[element.Bowling_Skill] !== undefined) {
-                    bowlingSkill[element.Bowling_Skill] += 1;
-                } else if(element.Bowling_Skill !== undefined && element.Bowling_Skill !== "NULL") {
-                    bowlingSkill[element.Bowling_Skill] = 1;
+
+        var dismissalType = {};
+        if(Object.keys(this.state.rawBallByBall).length !== 0){
+            this.state.rawBallByBall.data.forEach(element => {
+                if(dismissalType[element.Dissimal_Type] !== undefined) {
+                    dismissalType[element.Dissimal_Type] += 1;
+                } else if(element.Dissimal_Type !== undefined && element.Dissimal_Type !== ' ') {
+                    dismissalType[element.Dissimal_Type] = 1;
                 }
             });
 
             this.setState({
-                chartData5: {
-                    labels: [...Object.keys(bowlingSkill)],
+                chartData10: {
+                    labels: [...Object.keys(dismissalType)],
                     datasets: [
                         {
-                            label: 'Bowling Skill',
-                            data: [...Object.values(bowlingSkill)],
+                            label: 'Types of Dismissals',
+                            data: [...Object.values(dismissalType)],
                             backgroundColor: [
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)',
-                                'rgba(0, 150, 136, 0.5)'
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)',
+                                'rgba(233, 30, 99, 0.5)'
                             ],
                             borderColor: [
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)',
-                                'rgba(0, 150, 136, 1)'
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)',
+                                'rgba(233, 30, 99, 1)'
                             ],
                             borderWidth: 1
                         }
@@ -556,6 +639,7 @@ class Content extends React.Component {
             });
             this.forceUpdate();
         }
+      
     }
     dataForInfoBox1and2 = () => {        
         // Number of Superovers
@@ -624,8 +708,9 @@ class Content extends React.Component {
                     />
                     <ChartDisplay 
                         selectChart='horizontalBar' 
+                        displayLegend={false} 
                         chartData={this.state.chartData2} 
-                        titleText='Matches Hosted By Country' 
+                        titleText='Bowling Skill' 
                     />
                     <ChartDisplay 
                         selectChart='doughnut' 
@@ -641,7 +726,7 @@ class Content extends React.Component {
                         selectChart='horizontalBar' 
                         displayLegend={false} 
                         chartData={this.state.chartData5} 
-                        titleText='Matches Wins' 
+                        titleText='Total Matches win' 
                     />
                        <ChartDisplay 
                         selectChart='horizontalBar' 
@@ -662,9 +747,10 @@ class Content extends React.Component {
                         titleText='Toss winners' 
                     />
                      <ChartDisplay 
-                        selectChart='horizontalBar' 
+                        selectChart='bar' 
                         chartData={this.state.chartData9} 
-                        titleText='Matches Hosted By Country' 
+                        titleText='Matches city' 
+                        displayLegend={false}
                     />
                    
                   
@@ -672,7 +758,7 @@ class Content extends React.Component {
                         selectChart='horizontalBar' 
                         displayLegend={false} 
                         chartData={this.state.chartData10} 
-                        titleText='Bowling Skills' 
+                        titleText='Type of  Dismissal' 
                     />
                  
                     
