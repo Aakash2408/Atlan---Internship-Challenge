@@ -18,7 +18,7 @@ A data visualization challenge to build a web app with IPL (Indian Premier Leagu
   - [Papaparse](https://www.papaparse.com/) - for parsing CSV files to JSON
 
 ## Dataset
-  - [Click Here](https://www.kaggle.com/harsha547/indian-premier-league-csv-dataset)  
+  - [Click Here](https://www.kaggle.com/saurav9786/indian-premier-league-match-analysis)  
 
 ## Link to Hosted Website
   - [Click Here](https://atlan-internship-challenge.web.app/)  
