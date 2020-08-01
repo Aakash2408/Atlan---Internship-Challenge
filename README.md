@@ -6,7 +6,7 @@ A data visualization challenge to build a web app with IPL (Indian Premier Leagu
   - Responsive Design
   - Mobile friendly
 
-![Screetshot of Project]![atlan-internship-challenge web app_ (1)](https://user-images.githubusercontent.com/47134609/89071412-4a191600-d394-11ea-8285-860a06ca0a58.png)
+![atlan-internship-challenge web app_ (1)](https://user-images.githubusercontent.com/47134609/89071412-4a191600-d394-11ea-8285-860a06ca0a58.png)
 
 ## Built With
   - [React](https://reactjs.org/) - the web framework used
@@ -33,7 +33,7 @@ A data visualization challenge to build a web app with IPL (Indian Premier Leagu
   - I searched through all the given datasets to look for attributes that would intrigue a person who knows cricket but has never watched IPL. 
   - I wanted the Navigation bar to initially be in 'full' state while browsing on desktop and in 'minimal' state while on mobile to give mobile users more space       yet have menu items easily accessible in one click.
   - When looking for a CSV file parsing solution, papaparser was the best one I could find.
-  - Making a mobile responsive website is a must in 2019. With mobile in-mind, I carefully planned my layout design. I used grid layout and flex box for most of       my layout design process.
+  - With mobile in-mind, I carefully planned my layout design. I used grid layout and flex box for most of       my layout design process.
   - The top bar seemed empty, so I added a search bar that would fit in with the design scheme.
   - Used Poppins and Lato as fonts for this challenge, both being popular and modern choices. For the icons I used Font Awesome Pro.
   - I decided to add a fullscreen toggle button in the header bar because an admin panel is best viewed in fullscreen. Less clutter, the better. :)
