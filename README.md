@@ -1,3 +1,5 @@
+![GitHub top language](https://img.shields.io/github/languages/top/aakash2408/Atlan---Internship-Challenge) ![NPM](https://img.shields.io/npm/l/npm)
+
 # Atlan -- Internship Hiring Challenge
 
 A data visualization challenge to build a web app with IPL (Indian Premier League) data provided in CSV files. Goal was to present stats and interesting information about IPL to someone who knows about cricket but has not seen IPL.
